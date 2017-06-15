@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- bootstrap css 설정 -->
+<link href="./boot/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- jquery.js 설정 -->
+<script type="text/javascript" src="./boot/js/jquery-1.12.4.min.js"></script>
+<!-- bootstrap.js 설정 -->
+<script type="text/javascript" src="./boot/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body style="background-color:transparent">
+<table style="text-align:center" class="table">
+<caption> 충전/환전 내역 </caption>
+
+<tr>
+<td>번호</td>
+<td>아이디</td>
+<td>거래포인트</td>
+<td>거래전 포인트</td>
+<td>거래후 포인트</td>
+<td>거래일</td>
+</tr>
+<c:forEach var="crHistory" items="${crHistoryList}">
+<tr>
+<%-- <c:forEach var="sellHistoryDTO" items="${sellHistory}"> --%>
+
+<td>${crHistory["no"]}</td>
+<td>${crHistory["id"]}</td>
+<td>${crHistory["dealing_point"] }</td>
+<td>${crHistory["point_before"]}</td>
+<td>${crHistory["point_after"]}</td>
+<td>${crHistory["dealing_date"]}</td>
+
+<%-- </c:forEach> --%>
+</tr>
+</c:forEach>
+</table>
+
+</body>
+</html>
